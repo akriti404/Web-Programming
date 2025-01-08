@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM 2</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #6c63ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 90%;
+            max-width: 450px;
+            box-sizing: border-box;
+            margin:10px;
+        }
+        h1 {
+            text-align: center;
+            color: #4c46b5;
+            font-size: 1.5em;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin:5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #4c46b5;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="radio"],
+        input[type="checkbox"],
+        select,
+        textarea {
+            width: auto;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            color: #4c46b5;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4c46b5;
+            outline: none;
+        }
+        .radio-label,
+        .checkbox-label {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        button {
+            background-color: #4c46b5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #373099;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form 2</h1>
+        <form>
+            <label for="textBox">Text Box:</label>
+            <input type="text" id="textBox" name="textBox" placeholder="Enter text here" required>
+
+            <label>Radio Buttons:</label>
+            <input type="radio" id="radio1" name="radioGroup" value="Option 1" checked>
+            <label for="radio1" class="radio-label">Option 1</label>
+            <input type="radio" id="radio2" name="radioGroup" value="Option 2">
+            <label for="radio2" class="radio-label">Option 2</label>
+
+            <label>Check Boxes:</label>
+            <input type="checkbox" id="check1" name="checkGroup" value="Check 1">
+            <label for="check1" class="checkbox-label">Check 1</label>
+            <input type="checkbox" id="check2" name="checkGroup" value="Check 2" checked>
+            <label for="check2" class="checkbox-label">Check 2</label>
+
+            <label for="selectBox">Selection Box (Size 3):</label>
+            <select id="selectBox" name="selectBox" size="3">
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+            </select>
+
+            <label for="optionBox">Option Box:</label>
+            <select id="optionBox" name="optionBox">
+                <option value="Option A">Option A</option>
+                <option value="Option B">Option B</option>
+                <option value="Option C">Option C</option>
+            </select>
+
+            <label for="textArea">Text Area:</label>
+            <textarea id="textArea" name="textArea" rows="4" placeholder="Enter your comments here..."></textarea>
+
+            <label for="dataList">Datalist:</label>
+            <input list="datalistOptions" id="dataList" name="dataList" placeholder="Choose an option...">
+            <datalist id="datalistOptions">
+                <option value="Red">
+                <option value="Orange">
+                <option value="Yellow">
+                <option value="Blue">
+                <option value="Green">
+            </datalist>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6c63ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .login-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .login-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgb(158, 158, 159);
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #5752d6;
+        }
+
+        .login-box .fpassword a {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .login-box .fpassword a:hover {
+            text-decoration: underline;
+        }
+
+        .login-box .checkbox {
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 15px;
+        }
+
+        .login-box .checkbox input {
+            margin-right: 5px; 
+            transform: translateY(5px); 
+        }
+
+        .login-box .checkbox label {
+            color: #6c63ff;
+            font-weight: lighter;
+            display: flex; 
+            align-items: center; 
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <form action="activity_6.html">
+            <h2>Login</h2>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Show Password</label>
+            </div>
+            <div class="fpassword" >
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
