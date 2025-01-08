@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment Showcase Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f3f7;
+  }
+  header {
+    background: #d6c8e6;
+    color: #4b2a63;
+    padding: 15px;
+    text-align: center;
+  }
+  nav {
+    background: #ebe2f3;
+    color: #4b2a63;
+    padding: 10px;
+    text-align: right;
+  }
+  nav a {
+    color: #4b2a63;
+    font-weight: bold;
+    margin: 10px;
+    text-decoration: none;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  article {
+    flex: 3;
+    padding: 15px;
+    margin: 10px;
+    background: #fdf9ff;
+    border: 1px solid #e4d5f5;
+    border-radius: 5px;
+  }
+  aside {
+    flex: 1;
+    padding: 15px;
+    margin: 10px;
+    background: #f3e9fb;
+    border: 1px solid #d3c0e8;
+    border-radius: 5px;
+  }
+  footer {
+    background: #d6c8e6;
+    color: #4b2a63;
+    text-align: center;
+    padding: 10px;
+  }
+  form input, form textarea {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  form input[type="submit"] {
+    background: #b59fcf;
+    color: #4b2a63;
+    border: none;
+    cursor: pointer;
+  }
+  form input[type="submit"]:hover {
+    background: #a48dbe;
+  }
+  section#home {
+    background: #f3e9fb;
+    border: 1px solid #d6c8e6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  section#home h2 {
+    color: #4b2a63;
+  }
+  h2, h3 {
+    color: #4b2a63;
+  }
+  p {
+    color: #5b3a70;
+  }
+  img {
+  padding:2px;
+  max-width: 100%;
+  width: 500px; 
+  height: auto; 
+  border-radius: 5px;
+}
+  a {
+    color: #4b2a63;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    color:rgb(154, 154, 233);
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Welcome to My Assignment Showcase!</h1>
+  <p>A platform to display my assignments for others to learn and understand.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#blog">Blog</a>
+  <a href="#contact">Contact Us</a>
+</nav>
+
+<section id="home">
+  <h2>About This Website</h2>
+  <p>
+    This website is a collection of my assignments and projects, designed to help others understand 
+    web development concepts. It includes screenshots of assignments, a video demonstration, and a GitHub repository link.
+  </p>
+</section>
+
+<main>
+  <article id="blog">
+    <h2>Blog: My Assignments</h2>
+    <p>Below are my assignments along with their respective resources:</p>
+
+    <h3>Assignment 1A</h3>
+    <p>Here are images showcasing the first assignment:</p>
+    <img src="s1.png" alt="Assignment 1A Image 1">
+    <img src="s2.png" alt="Assignment 1A Image 2">
+    <img src="s3.png" alt="Assignment 1A Image 3">
+
+    <h3>Assignment 1B</h3>
+    <p>Hosting a Website:</p>
+    <a href="https://drive.google.com/file/d/1pbTt--Ye6jimHRf9nxLV77iZfNvkX0T9/view?usp=sharing" target="_blank">Video Link</a>
+
+    <h3>Assignment 1C</h3>
+    <p>Here are images showcasing the final assignment:</p>
+    <img src="s4.png" alt="Assignment 1C Image 1">
+    <img src="s5.png" alt="Assignment 1C Image 2">
+    <img src="s6.png" alt="Assignment 1C Image 3">
+    <img src="s1.png" alt="Assignment 1C Image 4">
+    <img src="s7.png" alt="Assignment 1C Image 5">
+    <img src="s8.png" alt="Assignment 1C Image 6">
+
+    <h3>GitHub Repository</h3>
+    <p>Explore the source code for all assignments:</p>
+    <a href="https://github.com/example-repo" target="_blank">Visit the GitHub Repository</a>
+  </article>
+
+  <aside>
+    <h3>Related Information</h3>
+    <p>
+      The images on the righthand side showcase screenshots of the completed assignments. 
+    </p>
+    <p>
+        Under Assignment 1A, we have a Home Page, Types Of Lists Page and a Tables Page.
+    </p>
+    <p>
+        The video under Assignment 1B provides a step by step explanation on how to host a website using GitHub.
+    </p>
+    <p>
+        Under Assignment 1C, we have a Signup Page which is linked with a Login Page. 
+        The Login Page is further linked with a form containing different types of HTML5 elements.
+    </p>
+    <p>
+        The GitHub repository contains all the source code for further exploration.
+    </p>
+    <p>
+      Feel free to browse through the resources and reach out through the contact form below for any questions or feedback.
+    </p>
+  </aside>
+</main>
+
+<footer id="contact">
+  <h2>Contact Us</h2>
+  <form action="">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="6"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</footer>
+</body>
+</html>
