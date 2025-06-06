@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4c46b5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            box-sizing: border-box;
+            margin: 20px auto;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #4c46b5;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #4c46b5;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333;
+        }
+        button {
+            background-color: #4c46b5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #373099;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Registration Form</h1>
+        <form id="eventForm">
+            <fieldset>
+                <legend>Personal Details</legend>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+                <input type="radio" name="gender" value="Prefer not to say"> Prefer not to say
+            </fieldset>
+            <fieldset>
+                <legend>Event Details</legend>
+                <label>Event Type:</label>
+                <input type="radio" name="eventType" value="Conference"> Conference
+                <input type="radio" name="eventType" value="Workshop"> Workshop
+                <input type="radio" name="eventType" value="Seminar"> Seminar
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate">
+                <label>Preferences:</label>
+                <input type="checkbox" name="preferences" value="Meal"> Meal
+                <input type="checkbox" name="preferences" value="Include Parking"> Include Parking
+                <input type="checkbox" name="preferences" value="None"> None
+                <label for="sessions">Select Sessions (Multiple):</label>
+                <select id="sessions" name="sessions" multiple>
+                    <option value="Morning">Morning</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Full Day">Full Day</option>
+                </select>
+                <label for="venue">Preferred Venue:</label>
+                <input type="text" id="venue" name="venue">
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="comments" rows="3"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Security</legend>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </fieldset>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+            document.getElementById("eventForm").addEventListener("submit", function(event) {
+            event.preventDefault();             
+            let isValid = true;
+
+            document.querySelectorAll("input[required]").forEach(input => {
+                if (input.value.trim() === "") {
+                    alert(`${input.name} cannot be empty.`);
+                    isValid = false;
+                }
+            });
+
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                isValid = false;
+            }
+
+            let name = document.getElementById("name").value;
+            if (!/^[a-zA-Z ]+$/.test(name)) {
+                alert("Full Name must contain only letters and spaces.");
+                isValid = false;
+            }
+
+            let sessions = document.getElementById("sessions");
+            if (sessions.selectedOptions.length === 0) {
+                alert("Please select at least one session.");
+                isValid = false;
+            }
+
+            let phone = document.getElementById("phone").value;
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be 10 digits.");
+                isValid = false;
+            }
+
+
+            let email = document.getElementById("email").value;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Invalid email format.");
+                isValid = false;
+            }
+
+            let genderChecked = document.querySelector("input[name='gender']:checked");
+            let eventTypeChecked = document.querySelector("input[name='eventType']:checked");
+            if (!genderChecked) {
+                alert("Please select a gender.");
+                isValid = false;
+            }
+            if (!eventTypeChecked) {
+                alert("Please select an event type.");
+                isValid = false;
+            }
+
+            let preferencesChecked = document.querySelectorAll("input[name='preferences']:checked").length;
+            if (preferencesChecked === 0) {
+                alert("Please select at least one preference.");
+                isValid = false;
+            }
+
+            let comments = document.getElementById("comments").value;
+            if (comments.length > 0 && comments.length < 5) {
+                alert("Additional comments must be at least 5 characters long.");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Form submitted successfully!");
+                this.submit();
+            }
+        });
+
+    </script>
+</body>
+</html>

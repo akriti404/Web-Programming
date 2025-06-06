@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    <script>
+        function task1()
+        {
+            var num1= parseFloat(prompt("Enter first number:" ));
+            var num2=parseFloat(prompt("Enter second number: "));
+            var num3 = parseFloat(prompt("Enter third number: "));
+
+            var numbers = [num1,num2,num3];
+            var max = Math.max(...numbers);
+            var ascending = [...numbers].sort((a,b) => a - b);
+            var descending = [...numbers].sort((a,b) => b - a);
+
+            alert(`Maximum: ${max}\nAscending Order: ${ascending}\nDescending Order: ${descending}`);
+        }
+
+        task1();
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Cactus Drawing</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .canvas-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        canvas {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body onload="setup()">
+    <h1>Cactus Drawing using HTML Canvas</h1>
+    <div class="canvas-container">
+        <canvas id="myCanvas" width="500" height="600"></canvas>
+    </div>
+
+    <script>
+        function setup() {
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            draw(ctx);
+        }
+
+        function draw(ctx) {
+            ctx.fillStyle = "rgb(255, 228, 196)";
+            ctx.fillRect(0, 0, 500, 600); 
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(240, 255, 255)";
+            ctx.arc(250, 175, 100, Math.PI, 0, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(176, 196, 222, 0.8)";
+            ctx.arc(250, 200, 100, 0, Math.PI, false);
+            ctx.fill();
+
+            // CACTUS' SPINES (Horizontal lines)
+            ctx.strokeStyle = "black";
+            for (let y = 280; y < 500; y += 20) {
+                ctx.beginPath();
+                ctx.moveTo(235, y);
+                ctx.lineTo(415, y);
+                ctx.stroke();
+            }
+
+            // FAN SPINES
+            ctx.beginPath();
+            ctx.moveTo(325, 300);
+            ctx.lineTo(250, 240);
+            ctx.moveTo(325, 300);
+            ctx.lineTo(280, 215);
+            ctx.moveTo(325, 300);
+            ctx.lineTo(325, 205);
+            ctx.moveTo(325, 300);
+            ctx.lineTo(375, 215);
+            ctx.moveTo(325, 300);
+            ctx.lineTo(400, 240);
+            ctx.stroke();
+
+            // RECTANGLE CACTUS
+            ctx.fillStyle = "rgb(60, 179, 113)";
+            ctx.beginPath();
+            ctx.roundRect(250, 225, 150, 400, [80, 80, 5, 5]);
+            ctx.fill();
+
+            ctx.fillStyle = "rgb(102, 205, 170)";
+            ctx.beginPath();
+            ctx.roundRect(300, 225, 50, 400, [25, 25, 0, 5]);
+            ctx.fill();
+
+            // Dots on the right section
+            ctx.fillStyle = "black";
+            for (let y = 240; y < 500; y += 20) {
+                ctx.beginPath();
+                ctx.arc(325, y, 2, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            // TRIANGLE CACTUS
+            ctx.fillStyle = "rgb(0, 128, 0)";
+            ctx.beginPath();
+            ctx.moveTo(100, 510);
+            ctx.lineTo(45, 400);
+            ctx.lineTo(200, 510);
+            ctx.fill();
+
+            ctx.fillStyle = "rgba(127, 255, 212, 0.8)";
+            ctx.beginPath();
+            ctx.moveTo(100, 510);
+            ctx.lineTo(120, 320);
+            ctx.lineTo(200, 510);
+            ctx.fill();
+
+            ctx.fillStyle = "rgba(32, 178, 170, 0.8)";
+            ctx.beginPath();
+            ctx.moveTo(100, 510);
+            ctx.lineTo(225, 350);
+            ctx.lineTo(200, 510);
+            ctx.fill();
+
+            ctx.fillStyle = "white";
+            let circlePositions = [
+                [75, 430], [90, 455], [130, 375], [120, 410],
+                [135, 450], [155, 485], [190, 460], [200, 400]
+            ];
+            circlePositions.forEach(([x, y]) => {
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+
+           
+            ctx.fillStyle = "rgb(240, 128, 128)";
+            ctx.beginPath();
+            ctx.moveTo(55, 500);
+            ctx.lineTo(450, 500);
+            ctx.lineTo(425, 600);
+            ctx.lineTo(85, 600);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = "rgb(205, 92, 92)";
+            ctx.beginPath();
+            ctx.moveTo(375, 500);
+            ctx.lineTo(450, 500);
+            ctx.lineTo(425, 600);
+            ctx.lineTo(300, 600);
+            ctx.closePath();
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

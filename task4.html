@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+    <script>
+        function task4()
+        {
+            var speed = parseFloat(prompt("Enter driving speed: "));
+            var limit=70;
+            var penalty= 5;
+            var max=10;
+            if(speed<=limit)
+            {
+                alert("Good Safe Driving");
+            }
+            else{
+                var points=Math.floor((speed-limit)/penalty);
+                if(points > max)
+                {
+                    alert("License Suspended");
+                }
+                else
+                {
+                    alert(`Speed Limit Crossed. Penalty Points: ${penalty}`);
+                }
+            }
+        }
+
+        task4();
+    </script>
+    
+</body>
+</html>

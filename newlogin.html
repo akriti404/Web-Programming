@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6c63ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        
+        .login-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+        
+        .login-box label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: black;
+        }
+        
+        .login-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgb(158, 158, 159);
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .login-box button:hover {
+            background-color: #5752d6;
+        }
+        
+        .login-box .fpassword a {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+        
+        .login-box .fpassword a:hover {
+            text-decoration: underline;
+        }
+        
+        .login-box .checkbox {
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 15px;
+        }
+        
+        .login-box .checkbox input {
+            margin-right: 5px; 
+            transform: translateY(5px); 
+        }
+        
+        .login-box .checkbox label {
+            color: #6c63ff;
+            font-weight: lighter;
+            display: flex; 
+            align-items: center; 
+            white-space: nowrap;
+        }
+        
+        .login-box .signup {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .login-box .signup a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+        
+        .login-box .signup a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <form action="semantic.html" onsubmit="return validateForm()">
+            <h2>Login</h2>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Show Password</label>
+            </div>
+            <div class="fpassword">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="signup">
+            Don't have an account? <a href="activity12_signup.html">Sign up</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            
+            if (username.trim() === "" || password.trim() === "") {
+                alert("Please fill out all fields before submitting.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Register Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Register Number Validation</h2>
+    <input type="text" id="regNumber" placeholder="Enter Register Number" maxlength="9">
+    <button onclick="checkValidation()">Validate</button>
+    <p id="result"></p>
+
+    <script>
+        function validateRegisterNumber(regNumber) {
+            const validYears = ["20", "21", "22", "23", "24", "25", "26", "27"];
+            const validCourses = ["BCE", "BDS", "BAI", "BCT", "BBT", "BEC", "BBA", "BKT"];
+            
+            if (regNumber.length !== 9) {
+                return "Invalid - Length should be 9 characters";
+            }
+            
+            const year = regNumber.substring(0, 2);
+            const course = regNumber.substring(2, 5);
+            const number = regNumber.substring(5);
+            
+            if (!validYears.includes(year)) {
+                return "Invalid - Year of joining is incorrect";
+            }
+            
+            if (!validCourses.includes(course)) {
+                return "Invalid - Course is incorrect";
+            }
+            
+            if (!/^[0-9]{4}$/.test(number) || number === "0000") {
+                return "Invalid - Number should be 4 digits and not 0000";
+            }
+            
+            return "Valid Register Number";
+        }
+        
+        function checkValidation() {
+            const regNumber = document.getElementById("regNumber").value;
+            document.getElementById("result").textContent = validateRegisterNumber(regNumber);
+        }
+    </script>
+</body>
+</html>
